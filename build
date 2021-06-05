@@ -41,7 +41,7 @@ tg(){
 	curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=$msg&chat_id=${your_telegram_id}"
 }
 
-id=756731456 # Your telegram id
+id=-1001398988224 # Set Your channel chat_id not telegram id
 
 # Upload rom zip file if succeed to build! Send notification to tg! And send shell to tg if build fails!
 
