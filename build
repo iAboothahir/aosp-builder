@@ -31,7 +31,7 @@ up(){
 
 # It's recommended to use google drive(rclone) as upload solution for coping with the time limit. Un-comment next 3 lines to upload with rclone in drive. Also change apon and junk according to your config name, uploading folder of drive
 up(){
-	time rclone copy $1 aboo:junk  # apon is my rclone config name, 
+	time rclone copy $1 aboo:  # apon is my rclone config name, 
 }
 
 tg(){
@@ -55,3 +55,5 @@ mka bacon -j10 \
 $send_zip" \
 	|| tmate -S /tmp/tmate.sock new-session -d && tmate -S /tmp/tmate.sock wait tmate-ready && send_shell=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}') && tg $id "Build Failed" && tg $id "$send_shell" && ccache -s && sleep 2h
 ccache -s # Let's print ccache statistics finally
+cd /tmp/rom/out/target/product/X00TD
+time rclone copy lineage*X00TD.zip aboo: -P
