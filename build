@@ -2,7 +2,7 @@
 cd /tmp/rom # Depends on where source got synced
 
 # Normal build steps
-apt install imagemagick -y
+sudo apt install rclone -y
 . build/envsetup.sh
 lunch lineage_X00TD-userdebug
 export CCACHE_DIR=/tmp/ccache
