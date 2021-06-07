@@ -1,5 +1,7 @@
 #!/bin/bash
 cd /tmp/rom # Depends on where source got synced
+mkdir -p ~/.config/rclone
+echo "$rclone_config" > ~/.config/rclone/rclone.conf # Write rclone config found from env variable, so that cloud storage can be used to upload ccache
 
 # Normal build steps
 sudo apt install rclone tmate -y
