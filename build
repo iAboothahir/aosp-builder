@@ -31,7 +31,7 @@ up(){
 
 # It's recommended to use google drive(rclone) as upload solution for coping with the time limit. Un-comment next 3 lines to upload with rclone in drive. Also change apon and junk according to your config name, uploading folder of drive
 up(){
-	time rclone copy $1 aboo:junk -P # apon is my rclone config name, 
+	time rclone copy $1 aboo:junk  # apon is my rclone config name, 
 }
 
 tg(){
