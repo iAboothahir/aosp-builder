@@ -1,7 +1,5 @@
 #!/bin/bash
 cd /tmp/rom # Depends on where source got synced
-mkdir -p ~/.config/rclone
-echo "$rclone_config" > ~/.config/rclone/rclone.conf # Write rclone config found from env variable, so that cloud storage can be used to upload ccache
 
 # Normal build steps
 sudo apt install rclone tmate -y
@@ -57,5 +55,3 @@ mka bacon -j10 \
 $send_zip" \
 	|| tmate -S /tmp/tmate.sock new-session -d && tmate -S /tmp/tmate.sock wait tmate-ready && send_shell=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}') && tg $id "Build Failed" && tg $id "$send_shell" && ccache -s && sleep 2h
 ccache -s # Let's print ccache statistics finally
-cd /tmp/rom/out/target/product/X00TD
-time rclone copy lineage*X00TD.zip aboo:cirrus
