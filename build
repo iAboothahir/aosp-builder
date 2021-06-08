@@ -31,7 +31,7 @@ up(){
 
 # It's recommended to use google drive(rclone) as upload solution for coping with the time limit. Un-comment next 3 lines to upload with rclone in drive. Also change apon and junk according to your config name, uploading folder of drive
 up(){
-	time rclone copy $1 aboo:cirrus # apon is my rclone config name, 
+	time rclone copy $1 aboo:cirrus/rom # apon is my rclone config name, 
 }
 
 tg(){
@@ -41,7 +41,7 @@ tg(){
 	curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" --data "text=$msg&chat_id=${your_telegram_id}"
 }
 
-id=-1001398988224 # Set Your channel chat_id not telegram id
+id=756731456 # Set Your telegram id
 
 # Upload rom zip file if succeed to build! Send notification to tg! And send shell to tg if build fails!
 
