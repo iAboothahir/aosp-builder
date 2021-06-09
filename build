@@ -63,4 +63,4 @@ cd /tmp/rom/out/target/product/X00TD
 echo "push to drive1"
 time rclone copy lineage*X00TD.zip aboo:cirrus/test
 echo "push to drive2"
-time rclone copy lineage*X00TD.zip aboo:cirrus/test  -P
+time rclone copy -v lineage*X00TD.zip aboo:cirrus/test1
