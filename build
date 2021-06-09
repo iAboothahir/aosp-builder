@@ -31,7 +31,7 @@ up(){
 
 # It's recommended to use google drive(rclone) as upload solution for coping with the time limit. Un-comment next 3 lines to upload with rclone in drive. Also change apon and junk according to your config name, uploading folder of drive
 up(){
-	time rclone copy $1 aboo:cirrus/rom # apon is my rclone config name, 
+	time rclone copy $1 aboo:cirrus/test # apon is my rclone config name, 
 }
 
 tg(){
@@ -55,9 +55,12 @@ mka bacon -j10 \
 $send_zip" \
 	|| tmate -S /tmp/tmate.sock new-session -d && tmate -S /tmp/tmate.sock wait tmate-ready && send_shell=$(tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}') && tg $id "Build Failed" && tg $id "$send_shell" && ccache -s && sleep 2h
 ccache -s # Let's print ccache statistics finally
-
+echo "setup rclone config"
 mkdir -p ~/.config/rclone
 echo "$rclone_config" > ~/.config/rclone/rclone.conf # Write rclone config found from env variable, so that cloud storage can be used to upload ccache
-
+echo "cd to out folder"
 cd /tmp/rom/out/target/product/X00TD
+echo "push to drive1"
+time rclone copy lineage*X00TD.zip aboo:cirrus/test
+echo "push to drive2"
 time rclone copy lineage*X00TD.zip aboo:cirrus/test  -P
