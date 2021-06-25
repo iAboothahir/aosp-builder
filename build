@@ -2,7 +2,7 @@
 cd /tmp/rom # Depends on where source got synced
 
 # Normal build steps
-sudo apt install rclone tmate -y
+
 . build/envsetup.sh
 lunch lineage_X00TD-userdebug
 export CCACHE_DIR=/tmp/ccache
@@ -16,10 +16,10 @@ ccache -z # Clear old stats, so monitor script will provide real ccache statisti
 #make api-stubs-docs || echo no problem, we need ccache
 #make system-api-stubs-docs || echo no problem we need ccache
 #make test-api-stubs-docs || echo no problem, we need ccache
-#mka bacon -j10 & # dont remove that '&'
-#sleep 85m
-#kill %1
-#ccache -s
+mka bacon -j10 & # dont remove that '&'
+sleep 85m
+kill %1
+ccache -s
 #and dont use below codes for first 1 or 2 times, to get ccache uploaded,
 
 
@@ -64,7 +64,7 @@ echo "cd to out /tmp/rom/out/target/product/X00TD folder"
 cd /tmp/rom/out/target/product/X00TD
 
 echo "push to drive"
-time rclone copy -v lineage*X00TD.zip aboo:cirrus/test1
+time rclone copy -v lineage*X00TD.zip aboo:cirrus/test
 
 echo "list out folder contents"
 ls -al /tmp/rom/out/target/product/X00TD
